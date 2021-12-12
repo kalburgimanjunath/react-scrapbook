@@ -22,7 +22,7 @@ export default function ScrapQuestions() {
       {questions.map((item) => {
         return (
           <div className="form-field">
-            <label>{item.fields.Name}</label>
+            <label>{item.fields.Name.toLowerCase()}</label>
             <div classname="form-control">
               <input type="text" name="name" value={item.fields.Answer} />
             </div>
