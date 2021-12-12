@@ -21,7 +21,8 @@ export default function ListScrapbook() {
   return (
     <div>
       <h1>List of scrapbook</h1>
-      {scraps.map((item) => {
+
+      {scraps && scraps.map((item) => {
         return (
           <div>
             <ScrapCard scrapdata={item.fields} />

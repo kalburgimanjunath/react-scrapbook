@@ -8,7 +8,7 @@ export default function ScrapQuestions() {
       .then((resp) => resp.json())
       .then((data) => {
         setScrapQuestions(data.records);
-        console.log(data.records);
+        // console.log(data.records);
       })
       .catch((err) => {
         // Error :(

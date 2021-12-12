@@ -16,7 +16,6 @@ export default function ScrapCard({ scrapdata }) {
       <div>
         <h1>{scrapdata.Title}</h1>
         <h4>From: {scrapdata.From}</h4>
-        <h3>{scrapdata.Text}</h3>
         <ScrapQuestions />
       </div>
       <div>{scrapdata.Text}</div>
