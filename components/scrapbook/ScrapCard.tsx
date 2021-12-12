@@ -1,5 +1,6 @@
-import React from 'react';
-import ScrapQuestions from './ScrapQuestions';
+// import ScrapQuestions from './ScrapQuestions';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+const ScrapQuest = React.lazy(() => import('./ScrapQuestions'));
 export default function ScrapCard({ scrapdata }) {
   const divStyle = {
     backgroundImage: 'url(' + scrapdata.background + ')',
@@ -11,14 +12,18 @@ export default function ScrapCard({ scrapdata }) {
   };
 
   return (
-    <div style={divStyle}>
-      <img src={scrapdata.background} width="200" height="200" />
-      <div>
+    <div style={divStyle} className="row">
+      <div className="col-md-6">
         <h1>{scrapdata.Title}</h1>
-        <h4>From: {scrapdata.From}</h4>
-        <ScrapQuestions />
+        {/* <ScrapQuest /> */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <ScrapQuest />
+        </Suspense>
       </div>
-      <div>{scrapdata.Text}</div>
+      <div className="col-md-6">
+        <h4>From: {scrapdata.From}</h4>
+        {scrapdata.Text}
+      </div>
     </div>
   );
 }

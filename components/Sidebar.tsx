@@ -1,4 +1,4 @@
 import React from 'react';
-export default function Footer() {
-  return <div>Footer</div>;
+export default function Sidebar() {
+  return <div>Sidebar</div>;
 }

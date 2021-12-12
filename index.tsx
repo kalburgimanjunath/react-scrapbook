@@ -23,7 +23,7 @@ class App extends Component<AppProps, AppState> {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Router>
           <Header name={this.state.name} />
           <Sidebar />

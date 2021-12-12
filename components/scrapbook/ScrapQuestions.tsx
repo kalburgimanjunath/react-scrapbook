@@ -21,14 +21,15 @@ export default function ScrapQuestions() {
     <div>
       {questions.map((item) => {
         return (
-          <div>
-            <div>{item.fields.Name}</div>
-            <div>
-              <input type="text" name="name" />
+          <div className="form-field">
+            <label>{item.fields.Name}</label>
+            <div classname="form-control">
+              <input type="text" name="name" value={item.fields.Answer} />
             </div>
           </div>
         );
       })}
+      <button type="button">Submit</button>
     </div>
   );
 }

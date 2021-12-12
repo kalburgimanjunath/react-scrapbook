@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import ScrapCard from './ScrapCard';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+// import ScrapCard from './ScrapCard';
+// import { Suspense, lazy } from 'react';
+const ScrapCard = React.lazy(() => import('./ScrapCard'));
 export default function ListScrapbook() {
   const [scraps, setScrapBooks] = useState([]);
   useEffect(() => {
@@ -19,16 +21,17 @@ export default function ListScrapbook() {
   // console.log(scraps);
 
   return (
-    <div>
-      <h1>List of scrapbook</h1>
-
-      {scraps && scraps.map((item) => {
-        return (
-          <div>
-            <ScrapCard scrapdata={item.fields} />
-          </div>
-        );
-      })}
+    <div className="row">
+      {scraps &&
+        scraps.map((item) => {
+          return (
+            <div className="col-md-12">
+              <Suspense fallback={<div>Loading...</div>}>
+                <ScrapCard scrapdata={item.fields} />
+              </Suspense>
+            </div>
+          );
+        })}
     </div>
   );
 }
