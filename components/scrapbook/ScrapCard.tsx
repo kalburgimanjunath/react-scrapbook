@@ -13,7 +13,7 @@ export default function ScrapCard({ scrapdata }) {
 
   return (
     <div style={divStyle} className="row">
-      <div className="col-md-6">
+      <div className="col-md-6 bg-warning">
         <h1>{scrapdata.Title}</h1>
         {/* <ScrapQuest /> */}
         <Suspense fallback={<div>Loading...</div>}>
